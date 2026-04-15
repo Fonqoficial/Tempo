@@ -1,0 +1,25 @@
+/* 1. Primero TODOS los imports */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
+
+/* 2. Después la configuración de Tailwind 4 */
+@theme {
+  --color-ink: #1a1a2e;
+  --color-ink2: #4a4a6a;
+  --color-ink3: #8888aa;
+  --color-accent: #c8463a;
+  --color-accent2: #e8734a;
+  --color-staff: #e8e4f0;
+  --color-surface: #f5f3fa;
+
+  --font-outfit: "Outfit", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --font-serif: "DM Serif Display", serif;
+}
+
+/* 3. Por último, tus estilos base */
+:root {
+  font-family: var(--font-outfit);
+  background-color: white;
+  color: var(--color-ink);
+}
