@@ -93,7 +93,7 @@ export default function BoloModal({ isOpen, onClose, existingBolos, onSuccess }:
             </label>
             <input 
               required
-              placeholder="Ej: Concierto de Gala"
+              placeholder="Ej: Concierto"
               className="w-full p-3 rounded-xl border border-staff focus:border-accent outline-none transition-all bg-white"
               type="text" 
               onChange={(e) => setFormData({...formData, titulo: e.target.value})}
