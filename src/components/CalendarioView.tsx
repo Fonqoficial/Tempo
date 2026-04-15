@@ -65,7 +65,7 @@ export default function CalendarioView({ bolos, onSelectBolo }: Props) {
 
       {/* Cuadrícula de días */}
       <div className="grid grid-cols-7">
-        {days.map((day, idx) => {
+        {days.map((day) => {
           const bolosDelDia = bolos.filter(b => isSameDay(new Date(b.fecha_bolo), day));
           
           return (

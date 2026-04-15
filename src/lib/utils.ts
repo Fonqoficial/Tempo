@@ -1,9 +1,3 @@
-import type { Bolo } from '../types';
-
-/**
- * Aplica la fórmula: (StartA < EndB) && (EndA > StartB)
- * para detectar si un nuevo horario choca con uno existente.
- */
 export function hayColision(
   nuevaFecha: string,
   nuevaHoraInicio: string,

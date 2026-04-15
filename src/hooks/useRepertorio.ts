@@ -8,7 +8,7 @@ export function useRepertorio(boloId: number | null) {
   const fetchRepertorio = async () => {
     if (!boloId) return;
     setLoading(true);
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('item_repertorio')
       .select(`
         id,
