@@ -1,73 +1,36 @@
-# React + TypeScript + Vite
+# 🎼 Tempo | Sistema de Gestión de Eventos Musicales
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Tempo** es una plataforma integral diseñada para músicos y directores de agrupaciones que necesitan centralizar su logística, agenda y repertorio en una única herramienta inteligente. Olvida las hojas de cálculo y los mensajes dispersos; gestiona tus bolos de forma profesional.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Características Principales
 
-## React Compiler
+### 📅 Gestión de Agenda Inteligente (Fase 2 & 3)
+* **Timeline Dinámico:** Visualización cronológica de próximos eventos con estados de confirmación en tiempo real.
+* **Detector de Colisiones:** Lógica algorítmica avanzada para evitar solapamientos de horarios. Basado en la validación matemática:
+    $$(StartA < EndB) \land (EndA > StartB)$$
+* **Vista Dual:** Alterna entre un listado detallado (*Timeline*) y una cuadrícula mensual (*Calendario*) para una planificación estratégica.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎵 Biblioteca de Repertorio (Fase 4)
+* **Gestión M:N:** Relación robusta entre eventos y partituras, permitiendo reutilizar el catálogo global en diferentes fechas.
+* **Setlists Personalizados:** Control total sobre el orden de interpretación para cada actuación.
+* **Acceso Directo:** Vinculación de archivos PDF para que los músicos accedan a sus partituras desde cualquier dispositivo.
 
-## Expanding the ESLint configuration
+### 🔍 Optimización de Flujo (Fase 5)
+* **Filtros Avanzados:** Búsqueda instantánea por nombre de evento, lugar o agrupación musical.
+* **Diseño Responsive:** Interfaz moderna construida con **Tailwind CSS**, optimizada para tablets y smartphones durante ensayos y conciertos.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Stack Tecnológico
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Tecnología | Propósito |
+| :--- | :--- |
+| **React 18** | Biblioteca principal para la interfaz de usuario. |
+| **Vite** | Tooling de última generación para un desarrollo rápido. |
+| **TypeScript** | Tipado estático para asegurar la robustez del código. |
+| **Supabase** | Backend as a Service (PostgreSQL + RLS) para persistencia segura. |
+| **Tailwind CSS** | Estilizado modular y utilitario. |
+| **Lucide React** | Set de iconografía consistente y ligera. |
+| **date-fns** | Manipulación y formateo de fechas y calendarios. |
