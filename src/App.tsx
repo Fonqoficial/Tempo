@@ -8,7 +8,9 @@ import BoloModal from './components/BoloModal';
 import RepertorioView from './components/RepertorioView';
 import CalendarioView from './components/CalendarioView'; // Nuevo componente
 
+
 function App() {
+  
   // Estados de Filtros y Vista (Fase 5)
   const [filtroTexto, setFiltroTexto] = useState('');
   const [filtroGrupo, setFiltroGrupo] = useState('Todos');

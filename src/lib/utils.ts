@@ -1,21 +1,29 @@
-export function hayColision(
-  nuevaFecha: string,
-  nuevaHoraInicio: string,
-  nuevaHoraFin: string,
-  grupoId: string | number,
-  bolosExistentes: any[]
-): boolean {
-  if (!nuevaFecha || !nuevaHoraInicio || !nuevaHoraFin || !grupoId) return false;
+// Definimos la interfaz localmente para evitar errores de importación circular
+interface EventoTime {
+  fecha_bolo: string;
+  hora_inicio: string;
+  hora_fin: string;
+}
 
-  return bolosExistentes.some((bolo) => {
-    // Solo chocan si es la misma fecha Y el mismo grupo
-    if (bolo.fecha_bolo !== nuevaFecha || bolo.grupo?.id !== Number(grupoId)) return false;
+export function hayColision(nuevoBolo: EventoTime, bolosExistentes: EventoTime[]): boolean {
+  return bolosExistentes.some(existente => {
+    // Solo comparar si son el mismo día
+    if (nuevoBolo.fecha_bolo !== existente.fecha_bolo) return false;
 
-    const startA = nuevaHoraInicio;
-    const endA = nuevaHoraFin;
-    const startB = bolo.hora_inicio.slice(0, 5);
-    const endB = bolo.hora_fin.slice(0, 5);
+    const inicioNuevo = nuevoBolo.hora_inicio;
+    const finNuevo = nuevoBolo.hora_fin;
+    const inicioExistente = existente.hora_inicio;
+    const finExistente = existente.hora_fin;
 
-    return startA < endB && endA > startB;
+    // Lógica matemática: (StartA < EndB) AND (EndA > StartB)
+    return (inicioNuevo < finExistente) && (finNuevo > inicioExistente);
   });
+}
+
+// Mantén aquí también tus funciones de ayuda de Tailwind (si las usas)
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
